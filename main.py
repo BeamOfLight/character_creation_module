@@ -1,14 +1,14 @@
+"""
+Это учебный проект.
+
+Здесь должно быть описание.
+"""
 
 from random import randint
 
 
-# Новый импорт.
-# Из модуля start_game_banner, который расположен в пакете graphic_arts,
-# импортируем функцию run_screensaver.
-from graphic_arts.start_game_banner import run_screensaver
-
-
 def attack(char_name: str, char_class: str) -> str:
+    """Вычисление очков урона в зависимости от класса персонажа."""
     value: int = 0
     if char_class == 'warrior':
         value = 5 + randint(3, 5)
@@ -20,6 +20,7 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Вычисление очков защиты в зависимости от класса персонажа."""
     value: int = 0
     if char_class == 'warrior':
         value = 10 + randint(5, 10)
@@ -31,6 +32,9 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Получение информации о специальном навыке.
+    Зависит от класса персонажа.
+    """
     skill_type: str = ''
     value: int = 0
     if char_class == 'warrior':
@@ -46,6 +50,7 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Начинаем тренировку."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -71,6 +76,7 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    """Выбираем класс персонажа."""
     approve_choice: str = ''
     char_class: str = ''
     while approve_choice != 'y':
@@ -90,14 +96,12 @@ def choice_char_class() -> str:
                 'Лекарь — могущественный заклинатель. '
                 'Черпает силы из природы, веры и духов.')
         approve_choice = input(
-            'Нажми (Y), чтобы подтвердить выбор, '
-            'или любую другую кнопку, чтобы выбрать другого персонажа '
-        ).lower()
+            'Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, '
+            'чтобы выбрать другого персонажа ').lower()
     return char_class
 
 
 if __name__ == '__main__':
-    run_screensaver()  # Запуск импортированной функции
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name: str = input('...назови себя: ')
